@@ -28,6 +28,10 @@ fgp.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').
 style_function=lambda x: {'fillColor':'green' if x['properties']['POP2005'] < 10000000
 else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}))
 
+fg = folium.FeatureGroup(name="My Map")
+fg.add_child(folium.Marker(location=[38.2, -99.1], popup="Hi I am a Marker", icon=folium.Icon(color='green')))
+
+map.add_child(fg)
 map.add_child(fgv)
 map.add_child(fgp)
 map.add_child(folium.LayerControl())
